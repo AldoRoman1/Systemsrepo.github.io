@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Systems Creation Store</title>
+<style>
+  /* Estilos básicos */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ece9e6, #ffffff); /* Fondo profesional */
+    padding: 20px;
+    margin: 0;
+  }
+  .nombreEmpresa {
+    font-size: 2em;
+    margin: 20px 0;
+    text-align: center;
+    color: #333; /* Color de texto profesional */
+  }
+  #menuPrincipal {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .botonMenu, .botonRecurso {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #28a745; /* Color de botón profesional */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  .botonMenu:hover, .botonRecurso:hover {
+    background-color: #218838; /* Color de botón al pasar el ratón */
+    transform: scale(1.05); /* Efecto de zoom */
+  }
+  .seccion {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    background-color: #fff; /* Fondo de las secciones */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  #inicio {
+    display: block;
+  }
+  .buscador {
+    margin-bottom: 20px;
+  }
+  .menuRecursos {
+    margin-top: 20px;
+  }
+</style>
+<script>
+  function mostrarSeccion(id) {
+    // Ocultar todas las secciones
+    var secciones = document.querySelectorAll('.seccion');
+    secciones.forEach(function(seccion) {
+      seccion.style.display = 'none';
+    });
+
+    // Mostrar la sección seleccionada
+    var seccionSeleccionada = document.getElementById(id);
+    if (seccionSeleccionada) {
+      seccionSeleccionada.style.display = 'block';
+    }
+  }
+
+  function mostrarCrearUsuario() {
+    document.getElementById('formInicioSesion').style.display = 'none';
+    document.getElementById('formCrearUsuario').style.display = 'block';
+  }
+
+  function crearUsuario() {
+    var nombreUsuario = document.getElementById('nombreUsuario').value;
+    var contrasena = document.getElementById('contrasena').value;
+
+    if (nombreUsuario && contrasena) {
+      alert('Usuario creado correctamente.');
+      mostrarSeccion('inicio');
+    } else {
+      alert('Por favor, complete todos los campos.');
+    }
+  }
+
+  function iniciarSesion() {
+    var nombreUsuario = document.getElementById('nombreUsuarioInicio').value;
+    var contrasena = document.getElementById('contrasenaInicio').value;
+
+    if (nombreUsuario === 'usuario' && contrasena === 'contraseña') {
+      alert('Inicio de sesión exitoso.');
+      mostrarSeccion('menuPrincipal');
+    } else {
+      alert('Nombre de usuario o contraseña incorrectos.');
+    }
+  }
+
+  function buscarSoftware() {
+    var query = document.getElementById('busqueda').value;
+    alert('Buscando software: ' + query);
+  }
+
+  function buscarRecursos() {
+    var query = document.getElementById('busquedaCapacitacion').value;
+    alert('Buscando recursos: ' + query);
+  }
+
+  function comprobarVersion() {
+    alert('Comprobando la versión del sistema...');
+  }
+
+  function mostrarVersionActual() {
+    document.getElementById('infoVersion').style.display = 'block';
+  }
+
+  function actualizarSistema() {
+    alert('Actualizando el sistema...');
+  }
+
+  function informarProblema() {
+    alert('Por favor, describa el problema que está experimentando.');
+  }
+
+  function contactarEmpresa() {
+    alert('Contactando a la empresa...');
+  }
+</script>
+</head>
+<body>
+
+<div class="nombreEmpresa">Systems Creation Store</div>
+
+<nav id="menuPrincipal">
+  <a href="javascript:mostrarSeccion('inicio');" class="botonMenu" aria-label="Inicio">Inicio</a>
+  <a href="javascript:mostrarSeccion('catalogo');" class="botonMenu" aria-label="Catálogo">Catálogo</a>
+  <a href="javascript:mostrarSeccion('capacitacion');" class="botonMenu" aria-label="Capacitación">Capacitación</a>
+  <a href="javascript:mostrarSeccion('actualizaciones');" class="botonMenu" aria-label="Actualizaciones">Actualizaciones</a>
+  <a href="javascript:mostrarSeccion('soporte');" class="botonMenu" aria-label="Soporte Técnico">Soporte</a>
+  <a href="javascript:mostrarSeccion('crearUsuario');" class="botonMenu" aria-label="Crear Usuario">Crear Usuario</a>
+  <a href="javascript:mostrarSeccion('iniciarSesion');" class="botonMenu" aria-label="Iniciar Sesión">Iniciar Sesión</a>
+</nav>
+
+<main id="inicio" class="seccion">
+  <h2>¿Quiénes somos?</h2>
+  <p>Somos una empresa dedicada a la creación y distribución de software, con el objetivo de facilitar la operación y promover la innovación en los negocios de nuestros clientes. Además, apoyamos a nuestros empleados en la distribución de sus propios sistemas, fomentando el emprendimiento y brindándoles soporte integral. Garantizamos la seguridad y el óptimo funcionamiento de todos nuestros sistemas, asegurando un entorno confiable y eficiente tanto para nuestros clientes como para nuestro equipo.</p>
+</main>
+
+<main id="catalogo" class="seccion">
+  <h2>Catálogo de Productos</h2>
+  <div class="buscador">
+    <input type="text" id="busqueda" placeholder="Buscar software...">
+    <button onclick="buscarSoftware()" class="botonMenu">Buscar</button>
+  </div>
+  <h3>Categorías</h3>
+  <ul>
+    <li><a href="#">Finanzas</a></li>
+    <li><a href="#">Educación</a></li>
+    <li><a href="#">Gestión de Proyectos</a></li>
+    <!-- Agrega más categorías según sea necesario -->
+  </ul>
+  <!-- Contenido del catálogo -->
+</main>
+
+<main id="capacitacion" class="seccion">
+  <h2>Panel de Capacitación</h2>
+  <div class="buscador">
+    <input type="text" id="busquedaCapacitacion" placeholder="Buscar recursos...">
+    <button onclick="buscarRecursos()" class="botonMenu">Buscar</button>
+  </div>
+  <div class="menuRecursos">
+    <h3>Recursos Disponibles</h3>
+    <button class="botonRecurso">Videos</button>
+    <button class="botonRecurso">PDFs</button>
+    <button class="botonRecurso">Guías Prácticas</button>
+    <button class="botonRecurso">Plataformas Digitales</button>
+  </div>
+</main>
+
+<main id="actualizaciones" class="seccion">
+  <h2>Actualizaciones del Programa</h2>
+  <div id="panelActualizaciones">
+    <button onclick="comprobarVersion()" class="botonMenu">Comprobar versión</button>
+    <button onclick="mostrarVersionActual()" class="botonMenu">Versión Actual</button>
+    <button onclick="actualizarSistema()" class="botonMenu">Actualizar Sistema</button>
+  </div>
+  <div id="infoVersion" style="display: none;">
+    <p>La versión actual del sistema es: <span id="versionActual">1.0</span></p>
+    <p>No hay nuevas actualizaciones disponibles.</p>
+  </div>
+</main>
+
+<main id="soporte" class="seccion">
+  <h2>Soporte Técnico</h2>
+  <button onclick="informarProblema()" class="botonMenu">Informar problema</button>
+  <button onclick="contactarEmpresa()" class="botonMenu">Contactar Empresa</button>
+  <p>Puedes contactarnos a través del correo electrónico <a href="mailto:systemscreation@gmail.com">systemscreation@gmail.com</a> o llamando al número de teléfono <a href="tel:+50222700089">+502 22700089</a>.</p>
+</main>
+
+<main id="crearUsuario" class="seccion">
+  <h2>Crear Usuario</h2>
+  <form id="formCrearUsuario">
+    <label for="nombreUsuario">Nombre de Usuario:</label><br>
+    <input type="text" id="nombreUsuario" name="nombreUsuario"><br>
+    <label for="contrasena">Contraseña:</label><br>
+    <input type="password" id="contrasena" name="contrasena"><br><br>
+    <button type="button" onclick="crearUsuario()" class="botonMenu">Crear Usuario</button>
+  </form>
+</main>
+
+<main id="iniciarSesion" class="seccion">
+  <h2>Iniciar Sesión</h2>
+  <form id="formInicioSesion">
+    <label for="nombreUsuarioInicio">Nombre de Usuario:</label><br>
+    <input type="text" id="nombreUsuarioInicio" name="nombreUsuarioInicio"><br>
+    <label for="contrasenaInicio">Contraseña:</label><br>
+    <input type="password" id="contrasenaInicio" name="contrasenaInicio"><br><br>
+    <button type="button" onclick="iniciarSesion()" class="botonMenu">Iniciar Sesión</button>
+  </form>
+</main>
+
+</body>
+</html>
